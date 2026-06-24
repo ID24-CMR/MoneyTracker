@@ -31,7 +31,7 @@ jobs:
     - name: Read current version
       id: version
       run: |
-          VERSION=$(cat version.txt)
+          VERSION=$(0.0.1)
           echo "Current version:$VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
