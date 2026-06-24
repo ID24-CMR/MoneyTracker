@@ -1,0 +1,58 @@
+name: Auto Release
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/setup-python@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Debug - List files
+        run: ls -R
+
+      - name: Read current version
+        id: version
+        run: |
+          VERSION=$(cat ../trackerMoney/version.txt)
+          echo "Current version:$VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Bump version
+        id: bump
+        run: |
+          version="0.0.1"
+          IFS='.' read -r major minor patch <<< "$version"
+          patch=$((patch + 1))
+          new_version="$major.$minor.$patch"
+          echo $new_version > version.txt
+          echo "New version: $new_version"
+          git commit -m "Bump version to $new_version"
+          git tag "v$new_version"
+          git push origin main --tags
+      
+      - name: Build and release
+        run: |
+          echo "Build steps here"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: "v${{ steps.bump.outputs.new_version }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
