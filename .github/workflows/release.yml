@@ -58,6 +58,12 @@ jobs:
         git tag v${{ steps.bump.outputs.new_version }}
         git push origin v${{ steps.bump.outputs.new_version }}
 
+    - name: Create Releases
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ steps.next.outputs.tag }}
+        name: Release ${{ steps.next.outputs.tag }}
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
