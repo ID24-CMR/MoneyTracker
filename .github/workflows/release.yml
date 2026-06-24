@@ -1,9 +1,11 @@
-name: Auto Release
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Python application
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -11,48 +13,58 @@ permissions:
   contents: write
 
 jobs:
-  release:
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/setup-python@v3
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+    - name: Debug - List files
+      run: ls -R
 
-      - name: Debug - List files
-        run: ls -R
-
-      - name: Read current version
-        id: version
-        run: |
-          VERSION="0.0.1"
+    - name: Read current version
+      id: version
+      run: |
+          VERSION=$(cat version.txt)
           echo "Current version:$VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Bump version
-        id: bump
-        run: |
-          version="0.0.1"
-          IFS='.' read -r major minor patch <<< "$version"
-          patch=$((patch + 1))
-          new_version="$major.$minor.$patch"
-          echo $new_version > version.txt
-          echo "New version: $new_version"
-          git commit -m "Bump version to $new_version"
-          git tag "v$new_version"
-          git push origin main --tags
-      
-      - name: Build and release
-        run: |
-          echo "Build steps here"
+    - name: Bump patch version
+      id: bump
+      run: |
+        VERSION=${{ steps.version.outputs.version }}
+        IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION"
+        PATCH=$((PATCH + 1))
+        NEW_VERSION="$MAJOR.$MINOR.$PATCH"
+        echo $NEW_VERSION > version.txt
+        echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: "v${{ steps.bump.outputs.new_version }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Commit new version
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add version.txt
+        git commit -m "Bump version to ${{ steps.bump.outputs.new_version }}" || echo "No changes"
+        git push
+
+    - name: Create new tag
+      run: |
+        git tag v${{ steps.bump.outputs.new_version }}
+        git push origin v${{ steps.bump.outputs.new_version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
