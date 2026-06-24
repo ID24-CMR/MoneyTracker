@@ -2,17 +2,11 @@
 <p align="center">
     <a href="href="https://github.com/ID24-CMR/MoneyTracker/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/ID24-CMR/MoneyTracker?style=flat-square"></a>
     <a href="href="https://github.com/ID24-CMR/MoneyTracker/LICENSE" title="Open License"><img src="https://img.shields.io/github/license/ID24-CMR/MoneyTracker"></a>
-<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/checks-status/ID24-CMR/MoneyTracker/main
-"></a>
-<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/v/release/ID24-CMR/MoneyTracker
-"></a>
-<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/commit-activity/w/ID24-CMR/MOneyTracker
-"></a>
-<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/languages/code-size/ID24-CMR/MOneyTracker
-"></a>
-<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/repo-size/ID24-CMR/MOneyTracker
-"></a>
-
+<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/checks-status/ID24-CMR/MoneyTracker/main"></a>
+<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/v/release/ID24-CMR/MoneyTracker"></a>
+<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/commit-activity/w/ID24-CMR/MOneyTracker"></a>
+<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/languages/code-size/ID24-CMR/MOneyTracker"></a>
+<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/repo-size/ID24-CMR/MOneyTracker"></a>
 </p>
 <p align="center">
     <a href="#development">Development</a>.
