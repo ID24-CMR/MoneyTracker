@@ -7,6 +7,7 @@
 <a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/commit-activity/w/ID24-CMR/MOneyTracker"></a>
 <a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/languages/code-size/ID24-CMR/MOneyTracker"></a>
 <a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/repo-size/ID24-CMR/MOneyTracker"></a>
+<a> <img src="https://img.shields.io/github/issues-closed/ID24-CMR/MoneyTracker"></a>
 </p>
 <p align="center">
     <a href="#development">Development</a>.
