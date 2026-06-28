@@ -1,15 +1,34 @@
 # Python
 /__pycache__/
-*.pyc
+*.py[code]
 *.pyo
 *.pyd
+*.$py.class
 
 # Django
 *.log
 db.sqlite3
 .vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+.pytest_cache/
 
 # Migrations cache
-*/migrations/__pycache__
+**/migrations/*
+!**/migrations/__init__.py
 *.pyc
 *.pyc
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+.env
