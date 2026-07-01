@@ -27,7 +27,7 @@ class Budget(models.Model):
         default="monthly"
     )
 
-    amount_date = models.DateField(
+    amount_limit = models.DecimalField(
         max_digits=15,
         decimal_places=2
     )
