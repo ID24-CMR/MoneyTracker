@@ -38,7 +38,10 @@ class Transaction(models.Model):
     )
 
     transaction_date = models.DateField()
-    reference = models-models.Field(max_field=100, blank=True)
+    reference = models.CharField(
+        max_length=100,
+        blank=True
+        )
 
     notes = models.TextField(blank=True)
 

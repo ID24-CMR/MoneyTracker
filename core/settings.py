@@ -46,8 +46,10 @@ INSTALLED_APPS = [
     "accounts",
     "transactions",
     "budgets",
+    "categories",
     "reports",
     "dashboard",
+    "savings",
     "ai",
 ]
 
