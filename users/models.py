@@ -3,6 +3,10 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
+
+    frist_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
+
     preferred_currency = models.CharField(
         max_length = 10,
         default="CAD"
@@ -19,4 +23,4 @@ class User(AbstractUser):
     )
 
     def __str__(self):
-        return self.username
+        return f"{self.first_name} {self.last_name}"
