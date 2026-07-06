@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}LOgin | MoneyTracker {% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="login-left">
+        <h1>MoneyTracker</h1>
+
+        <h2>Manage your money with confidence.</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="success-lert"> {{ message}}</div>
+            {% endfor %}
+        {% endif %}
+        <p>
+            Track your income, control your expenses, build budgets, and achieve your financial goals.
+        </p>
+    </div>
+
+<div class="login-right">
+    <div class="login-card">
+        <h2>Welcome Back</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+                {% for message in messages %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            
+
+            <div class="form-group">
+                <label for="">Username</label>
+                <input type="text" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit" class="btn-primary">Login</button>
+        </form>
+        <!-- <p class="register-link">
+            Don't have an account?<a> register</a>
+        </p> -->
+    </div>
+</div>
+</div>
+{% endblock %}

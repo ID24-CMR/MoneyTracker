@@ -9,3 +9,123 @@ body{
     background: #f5f7fb;
     color: #222;
 }
+
+
+/*** login css ***/
+/** start ***/
+
+.login-container{
+    display: flex;
+    min-height: 100vh;
+}
+
+.login-left {
+    flex: 1.3;
+    background: #10b981;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    pad: 70px;
+}
+
+.login-left h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+.login-left h2 {
+    margin-bottom: 20px;
+}
+
+.login-left p {
+    line-height: 1.8;
+}
+
+.login-right {
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F9FAFB;
+}
+
+.login-card{
+    background: white;
+    width: 460px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.login-card h2{
+    margin-bottom: 30px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.btn-primary{
+    width:100%;
+    padding: 14px;
+    background: #10B981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover{
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+.register-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.alert {
+    background: #FEE2E2;
+    color: #B91C1C;
+    padding:12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border:1px solid #FCA5A5;
+}
+
+.success-alert{
+    background: #DCFCE7;
+    color:#166534;
+    border:1px solid #86EFAC;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.form-control{
+    width: none;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius:8px;
+    font-size: 15px;
+}
+
+.form-control:focus{
+    outline: none;
+    border-color: #10B981;
+    box-shadow: 0 0 0 4px rgba(15, 185, 129, 0.15);
+}

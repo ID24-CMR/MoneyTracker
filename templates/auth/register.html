@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}Register | MoneyTracker {% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-left">
+        <h1>MoneyTracker</h1>
+        <h2>Start your financial journey today.</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="success-lert"> {{ message}}</div>
+            {% endfor %}
+        {% endif %}
+        <p>
+            create your account to track your income, monitor expenses, build budgets and achieve your financial goals.
+        </p>
+    </div>
+
+    <div class="login-right">
+        <div class="login-card">
+            <h2>Create Account</h2>
+            <form action="#" method="POST">
+                {% csrf_token %}
+
+                {{ form.non_field_errors }}
+
+                <div class="form-group">
+                    <label for="form-group">First Name</label>
+                        {{ form.first_name }}
+                        {{ form.first_name.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="form-group">Last Name</label>
+                        {{ form.last_name }}
+                        {{ form.last_name.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="form-group">Username</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                </div>
+
+                <div class="form-group">
+                    <label for="form-group">Email</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="form-group">Password</label>
+                        {{ form.password }}
+                        {{ form.password.errors }}
+                </div>
+                <div class="form-group">
+                    <label for="form-group">Confirm Password</label>
+                        {{ form.confirm_password }}
+                        {{ form.confirm_password.errors }}
+                </div>
+
+                <button class="btn-primary" type="submit">
+                    Create Account
+                </button>
+            </form>
+            <p class="register-link">
+                Already hvae an account? <a href="{% url 'login' %}"> login</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
