@@ -1,0 +1,78 @@
+.navbar {
+    height: 70px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight: 700;
+    color: #10B981;
+}
+
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-name{
+    font-weight: 500;
+}
+.logout-btn,
+.nav-link {
+    background: #10B981;
+    color:white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.logout-btn:hover,
+.nav-link:hover{
+    background: #059669;
+}
+
+/* sidebar here */
+
+.sidebar{
+    width: 260px;
+    background: #1F2937;
+    min-height: calc(100vh -70px);
+    padding: 30px 15px;
+}
+.sidebar-menu{
+    list-style: none;
+}
+.sidebar-menu li{
+    margin-bottom: 10px;
+}
+.sidebar-menu a{
+    display: block;
+    padding: 12px 18px;
+    color: white;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sidebar-menu a:hover{
+    background: #374151;
+}
+
+/* layout css ***/
+
+.app-layout{
+    display: flex;
+}
+
+.main-content{
+    flex: 1;
+    padding: 40px;
+}

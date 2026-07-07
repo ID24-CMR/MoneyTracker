@@ -11,6 +11,7 @@
     </title>
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +21,25 @@
     {% block extra_css %}{% endblock %}
 </head>
 <body>
-    {% block content %}
-    
-    {% endblock %}
+    {% include "setup/navbar.html" %}
+
+    <div class="app-layout">
+        {% if user.is_authenticated %}
+            {% include "setup/sidebar.html" %}
+        {% endif %}
+
+        <main class="main-content">
+            {% include "setup/messages.html" %}
+
+            {% block content %}
+            {% endblock %}
+
+        </main>
+    </div>
+
+    {% if user.is_authenticated %}
+        {% include "setup/footer.html" %}
+    {% endif %}
 
     <script src="{% static 'js/app.js' %}"></script>
 
