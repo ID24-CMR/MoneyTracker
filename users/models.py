@@ -7,6 +7,8 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
 
+    setup_completed = models.BooleanField(default=False)
+
     preferred_currency = models.CharField(
         max_length = 10,
         default="CAD"
