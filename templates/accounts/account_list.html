@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+Accounts
+{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <div>
+        <h1>Accounts</h1>
+        <p>Manage all your financial accounts.</p>
+    </div>
+    <div>
+        <a href="#" class="btn-primary">+ New Account</a>
+    </div>
+</div>
+
+{% if accounts %}
+<div class="accound-grid">
+    {% for account in accounts %}
+    <div class="account-card">
+        <h3>{{ account.name }}</h3>
+        <p><strong>Type:</strong> {{ account.get_account_type_display }}</p>
+        <p><strong>Currency:</strong> {{ account.currency }}</p>
+        <p class="balance">
+            {{ account.opening_balance }}
+        </p>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<div class="empty-state">
+    <h2>No accounts yet!</h2>
+    <p>Create your first financial account.</p>
+    <br>
+    <a href="#" class="btn-primary">Create Account</a>
+</div>
+
+{% endif %}
+{% endblock %}

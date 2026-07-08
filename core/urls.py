@@ -26,6 +26,7 @@ urlpatterns = [
     path("", home, name="home"),
     path("", include("users.urls")),
     path("api/auth/", include("users.api.urls")),
+    path("accounts/", include("accounts.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(
