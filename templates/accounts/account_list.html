@@ -12,7 +12,7 @@ Accounts
         <p>Manage all your financial accounts.</p>
     </div>
     <div>
-        <a href="#" class="btn-primary">+ New Account</a>
+        <a href="{% url 'account_create' %}" class="btn-primary">+ New Account</a>
     </div>
 </div>
 
@@ -34,7 +34,7 @@ Accounts
     <h2>No accounts yet!</h2>
     <p>Create your first financial account.</p>
     <br>
-    <a href="#" class="btn-primary">Create Account</a>
+    <a href="{% url 'account_create' %}" class="btn-primary">Create Account</a>
 </div>
 
 {% endif %}

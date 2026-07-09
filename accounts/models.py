@@ -8,7 +8,14 @@ class Account(models.Model):
         ("bank", "Bank Account"),
         ("mobile", "Mobile Money"),
         ("credit", "Credit Card"),
-        ("savings", "Savings")
+        ("savings", "Savings"),
+    ]
+
+    CURRENCY_CHOICES = [
+        ("CAD", "Canada Dollars"),
+        ("USD", "US Dollars"),
+        ("EUR", "Euro"),
+        ("XAF", "Center Africa"),
     ]
 
     user = models.ForeignKey(
@@ -16,13 +23,16 @@ class Account(models.Model):
     )
 
     name = models.CharField(max_length=100)
+
     account_type = models.CharField(
         max_length=20,
-        choices=ACCOUNT_TYPES
+        choices=ACCOUNT_TYPES,
+        default="Cash"
     )
 
     currency = models.CharField(
         max_length=10,
+        choices=CURRENCY_CHOICES,
         default="CAD"
     )
 
