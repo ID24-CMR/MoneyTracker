@@ -26,6 +26,10 @@ Accounts
         <p class="balance">
             {{ account.opening_balance }}
         </p>
+        <div style="margin-top:20px;">
+            <a href="{% url 'account_detail' account.id %}" class="btn-primary">View</a>
+            <a href="{% url 'account_update' account.id %}" class="btn-primary"> Edit </a>
+        </div>
     </div>
     {% endfor %}
 </div>
