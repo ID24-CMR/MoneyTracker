@@ -35,3 +35,34 @@
     border-radius: 12px;
     text-align: center;
 }
+
+.form-container{
+    max-width: 700px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-sizing: 0 2px 10px rgba(0, 0, 0, .08);
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+.form-group label{
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.btn-secondary{
+    margin-left: 10px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #6B7280;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-secondary:hover{
+    background: #4B5563;
+}

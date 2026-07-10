@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Create an Account {% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <div class="page-header">
+        <div>
+            <h1>Create Account</h1>
+            <p>Add a new financial account.</p>
+        </div>
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <div class="form-group">
+            <label>Account Name</label>
+            {{ form.name }}
+        </div>
+
+        <div class="form-group">
+            <label>Account Type</label>
+            {{ form.account_type }}
+        </div>
+
+        <div class="form-group">
+            <label>Currency</label>
+            {{ form.currency }}
+        </div>
+
+        <div class="form-group">
+            <label>Opening Balance</label>
+            {{ form.opening_balance }}
+        </div>
+        <button type="submit" class="btn-primary">Save Account</button>
+        <a href="{% url 'account_list' %}" class="btn-secondary"> Cancel</a>
+    </form>
+</div>
+{% endblock %}

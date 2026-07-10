@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %} {{ account.name }} {% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <div>
+        <h1>{{ account.name }}</h1>
+        <p>{{ account.get_account_type_display }}</p>
+    </div>
+
+    <a href="{% url 'account_update' account.id %}" class="btn-primary">Edit Account</a>
+</div>
+
+<div class="account-card">
+    <h3>Account Information</h3>
+
+    <hr>
+    <p><strong>Name:</strong> {{ account.name }}</p>
+    <p><strong>Type:</strong> {{ account.get_account_type_display }}</p>
+    <p><strong>Currency</strong> {{ account.currency }}</p>
+    <p><strong>Opening Balance:</strong> {{ account.opening_balance }}</p>
+    <p><strong>Status:</strong>
+        {% if account.is_active %}
+            Active
+        {% else %}
+        Archived
+        {% endif %}</p>
+    <p><strong>Created:</strong> {{ account.created_at }}</p>
+</div>
+
+<div class="dashboard-card">
+    <h3>Recent Transactions</h3>
+    <p>No transactions available yet.</p>
+</div>
+
+{% endblock %}
