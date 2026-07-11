@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %} Archive account {% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Archive Account</h1>
+    <p>
+        Are you sure you want to archive <strong>{{ account.name }}</strong>?
+    </p>
+    <p>
+        the account will disappear from your active accounts, but all its history will be preserved.
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div style="display:flex; gap:10px">
+        <button class="btn-primary" type="submit">Yes, Archive</button>
+        <a href="{% url 'account_detail' account.id %}" class="btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

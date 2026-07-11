@@ -94,3 +94,28 @@ def account_detail(request, pk):
         "accounts/account_detail.html",
         context,
     )
+
+@login_required
+def account_archive(request, pk):
+    account = get_object_or_404(
+        Account,
+        pk=pk,
+        user=request.user,
+        is_active=True,
+    )
+    if request.method== "POST":
+        account.is_active = False
+        account.save()
+
+        messages.success(
+            request,
+            "Account archived successfully."
+        )
+        return redirect("account_list")
+    return render(
+        request,
+        "accounts/account_archive.html",
+        {
+            "account": account
+        }
+    )

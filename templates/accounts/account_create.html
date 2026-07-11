@@ -33,8 +33,11 @@
             <label>Opening Balance</label>
             {{ form.opening_balance }}
         </div>
+
+        <div style="display:flex; gap:10px">
         <button type="submit" class="btn-primary">Save Account</button>
         <a href="{% url 'account_list' %}" class="btn-secondary"> Cancel</a>
+        </div>
     </form>
 </div>
 {% endblock %}
