@@ -12,10 +12,12 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
+        <div style="display:flex; gap:10px; margin-top: 5px;">
         <button class="btn-primary">
             update Account
         </button>
         <a href="{% url 'account_list' %}" class="btn-secondary">Cancel</a>
+        </div>
     </form>
 </div>
 

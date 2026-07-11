@@ -9,8 +9,11 @@
         <h1>{{ account.name }}</h1>
         <p>{{ account.get_account_type_display }}</p>
     </div>
-
+    <div style="display:flex; gap:10;">
     <a href="{% url 'account_update' account.id %}" class="btn-primary">Edit Account</a>
+    <a href="{% url 'account_archive' account.id %}" class="btn-secondary">Archive</a>
+    </div>
+
 </div>
 
 <div class="account-card">
