@@ -34,6 +34,7 @@
     padding: 60px;
     border-radius: 12px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .form-container{
@@ -61,6 +62,7 @@
     background: #6B7280;
     color: #fff;
     text-decoration: none;
+    margin-top: 30px;
 }
 
 .btn-secondary:hover{
