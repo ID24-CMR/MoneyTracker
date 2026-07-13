@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Edit Category {% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+    <h1>Edit Category</h1>
+    <form action="#" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn-primary"> Update Category</button>
+        <a href="{% url 'category_list' %}" class="btn-secondary">Cancel</a>
+    </form>
+</div>
+
+{% endblock %}

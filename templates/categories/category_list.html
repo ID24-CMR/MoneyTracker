@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Categories {% endblock %}
+
+{% block content %}
+    <div class="page-header">
+        <div>
+            <h1>Categories</h1>
+            <p>Manage your income and expense Categories.</p>
+        </div>
+
+        <a href="{% url 'category_create' %}" class="btn-primary" style="width:fit-content">+ New Category</a>
+    </div>
+
+    {% if categories|length == 0 %}
+    <div class="empty-state">
+        <h2>No categories yet</h2>
+        <p>Create your first Category</p><br>
+        <a href="{% url 'category_create' %}" class="btn-primary" > Create Category</a>
+    </div>
+
+    {% else %}
+    <div class="account-grid">
+        {% for category in categories %}
+        <div class="account-card">
+            <h3>{{ category.name }}</h3>
+            <p><strong>Type:</strong> {{ category.get_category_type_display }}</p>
+            <p><strong>Icon:</strong>{{ category.icon }}</p>
+            <p><strong>Color:</strong>{{ category.color }}</p>
+
+            <div style="margin-top:20px; gap:10px;">
+                <a href="{% url 'category_update' category.id %}" class="btn-secondary">Edit</a>
+                <a href="" class="btn-secondary" style="background:rgba(201, 236, 60, 0.863)"> View</a>
+                <a href="" class="btn-secondary" style="background:red">Delete</a>
+                </div>
+        </div>
+        
+    {% endfor %}
+    </div>
+    {% endif %}
+
+
+{% endblock %}

@@ -23,7 +23,7 @@ class Category(models.Model):
 
     icon = models.CharField(
         max_length=50,
-        blank=True
+        default="folder",
     )
 
     color = models.CharField(
@@ -31,11 +31,13 @@ class Category(models.Model):
         default="#4CAF50"
     )
 
-    is_default = models.BooleanField(default=False)
+    is_default = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
-    class MEta:
+    class Meta:
         ordering = ["name"]
+        unique_together = ("user", "name")
 
     def __str__(self):
         return self.name

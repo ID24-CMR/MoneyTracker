@@ -78,7 +78,7 @@ body{
 }
 
 .btn-primary{
-    width:100%;
+    width:fit-content;
     padding: 14px;
     background: #10B981;
     color: white;
@@ -122,6 +122,7 @@ body{
     border: 1px solid #d1d5db;
     border-radius:8px;
     font-size: 15px;
+    margin-bottom: 60px;
 }
 
 .form-control:focus{

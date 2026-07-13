@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .forms import RegisterForm
+from categories.services import create_default_categories
 
 # Create your views here.
 def home(request):
@@ -56,8 +57,10 @@ def register_view(request):
         if form.is_valid():
 
             user = form.save(commit=False)
+            
             user.set_password(form.cleaned_data["password"]) #password is hashes before being save
             user.save()
+            create_default_categories(user)
             messages.success(
                 request,
                 "Account created successfully. You can now log in."
