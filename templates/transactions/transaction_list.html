@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Transactions {% endblock %}
+
+{% block content %}
+    <h2>Transactions</h2>
+    <br>
+    <p>
+        <a href="{% url 'transaction_create' %}" class="btn-primary"> + New Transaction</a>
+    </p>
+    {% if transactions %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Reference</th>
+                <th>Account</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for transaction in transactions %}
+            <tr>
+                <td>{{ transaction.reference }}</td>
+                <td>{{ transaction.account }}</td>
+                <td>{{ transaction.category }}</td>
+                <td>{{ transaction.get_transaction_type_display }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.transaction_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <br>
+    <p>No Transaction yet. Create your Transaction.</p>
+    {% endif %}
+
+{% endblock %}
