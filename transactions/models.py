@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 # Create your models here.
 class Transaction(models.Model):
     TRANSACTION_TYPES = [
@@ -40,8 +41,15 @@ class Transaction(models.Model):
     transaction_date = models.DateField()
     reference = models.CharField(
         max_length=100,
-        blank=True
+        editable=False,
+        unique=True,
         )
+    description = models.CharField(
+        max_length=255,
+        blank=True,
+    )
+
+    is_active = models.BooleanField(default=True)
 
     notes = models.TextField(blank=True)
 
@@ -54,3 +62,10 @@ class Transaction(models.Model):
 
     def __str__(self):
         return f"{self.transaction_type} - {self.amount}"
+
+    def save(self, *args, **kwargs):
+        if not self.reference:
+            timestamp = timezone.now().strftime("%Y%m%d%H%M%S")
+            self.reference = f"TRX-{timestamp}"
+
+        super().save(*args, **kwargs)
