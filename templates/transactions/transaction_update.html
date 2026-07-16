@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Transaction {% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Edit Transaction</h1>
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn-primary"> Update Transaction</button><br>
+        <a href="{% url 'transaction_list' %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}

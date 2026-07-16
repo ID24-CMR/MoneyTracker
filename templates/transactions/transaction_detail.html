@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} Transaction details {% endblock %}
+
+{% block content %}
+ <div class="page-header">
+    <h1>Transaction Details.</h1>
+    <a href="{% url 'transaction_list' %}" class="btn-secondary">Back</a>
+ </div>
+
+ <div class="account-card">
+    <p><strong>Reference: </strong>{{ transaction.reference }}</p>
+    <p><strong>Account: </strong>{{ transaction.account }}</p>
+    <p><strong>Category: </strong>{{ transaction.category }}</p>
+    <p><strong>Type: </strong>{{ transaction.get_transaction_type_display }}</p>
+    <p><strong>Amount: </strong>{{ transaction.amount }}</p>
+    <p><strong>Date: </strong>{{ transaction.transaction_date }}</p>
+    <p><strong>Description: </strong> {{ transaction.description }}</p>
+    <p><strong>Notes: </strong> {{ transaction.notes }}</p>
+ </div>
+ {% endblock %}
