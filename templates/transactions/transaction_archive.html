@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Archive Transaction {% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Archive Transaction</h1>
+    <p>
+        Archive transaction <strong>{{ transaction.reference }}</strong>?
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button class="btn-primary" > Yes Archive</button><br>
+        <a href="{% url 'transaction_list'%}">Cancel </a>
+    </form>
+</div>
+{% endblock %}

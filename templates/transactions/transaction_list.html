@@ -18,6 +18,7 @@
                 <th>Type</th>
                 <th>Amount</th>
                 <th>Date</th>
+                <th>Actions</th>
             </tr>
         </thead>
 
@@ -30,6 +31,11 @@
                 <td>{{ transaction.get_transaction_type_display }}</td>
                 <td>{{ transaction.amount }}</td>
                 <td>{{ transaction.transaction_date }}</td>
+                <td>
+                    <a href="{% url 'transaction_details' transaction.id %}" class="btn-primary"> View</a>
+                    <a href="{% url 'transaction_update' transaction.id %}" class="btn-secondary">Edit</a>
+                    <a href="{% url 'transaction_archive' transaction.id %}" class="btn-secondary" style="background:red;">Archive</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
