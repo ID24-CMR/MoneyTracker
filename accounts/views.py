@@ -1,11 +1,11 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-
 from django.contrib import messages
-from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
+from transactions.services import TransactionService
 
-from .models import Account
 from .forms import AccountForm
+from .models import Account
+
 
 # Create your views here.
 @login_required
@@ -15,13 +15,20 @@ def account_list(request):
         is_active=True
     )
 
-    context = {
-        "accounts": accounts,
-    }
+    account_data = []
+    for account in accounts:
+        summary = TransactionService.get_account_summary(account)
+        account_data.append({
+            "account": account,
+            "current_balance": summary["current_balance"],
+        })
 
     return render(
         request,
-        "accounts/account_list.html", context
+        "accounts/account_list.html",
+        {
+            "account_data": account_data,
+        },
     )
 
 @login_required

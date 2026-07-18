@@ -16,19 +16,19 @@ Accounts
     </div>
 </div>
 
-{% if accounts %}
+{% if account_data %}
 <div class="accound-grid">
-    {% for account in accounts %}
+    {% for item in account_data %}
     <div class="account-card">
-        <h3>{{ account.name }}</h3>
-        <p><strong>Type:</strong> {{ account.get_account_type_display }}</p>
-        <p><strong>Currency:</strong> {{ account.currency }}</p>
+        <h3>{{ item.account.name }}</h3>
+        <p><strong>Type:</strong> {{ item.account.get_account_type_display }}</p>
+        <p><strong>Currency:</strong> {{ item.account.currency }}</p>
         <p class="balance">
-            {{ account.opening_balance }}
+            {{ item.current_balance }}
         </p>
         <div style="margin-top:20px;">
-            <a href="{% url 'account_detail' account.id %}" class="btn-primary">View</a>
-            <a href="{% url 'account_update' account.id %}" class="btn-primary"> Edit </a>
+            <a href="{% url 'account_detail' item.account.id %}" class="btn-primary">View</a>
+            <a href="{% url 'account_update' item.account.id %}" class="btn-primary"> Edit </a>
         </div>
     </div>
     {% endfor %}

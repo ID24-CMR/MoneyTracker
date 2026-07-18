@@ -1,7 +1,9 @@
-from django import forms
-from .models import Transaction
-from categories.models import Category
 from accounts.models import Account
+from categories.models import Category
+from django import forms
+
+from .models import Transaction
+
 
 class TransactionForm(forms.ModelForm):
     class Meta:
@@ -12,7 +14,7 @@ class TransactionForm(forms.ModelForm):
             "amount",
             "transaction_date",
             "description",
-            "notes"
+            "notes",
         ]
 
         widgets = {
