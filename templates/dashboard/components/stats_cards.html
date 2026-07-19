@@ -1,17 +1,17 @@
 <div class="stats-grid">
     <div class="stat-card">
         <h4>Total Balance</h4>
-        <h2>$0.00</h2>
+        <h2>$ {{ dashboard_summary.total_balance|floatformat:2 }}</h2>
     </div>
 
     <div class="stat-card">
         <h4>Income</h4>
-        <h2>$0.00</h2>
+        <h2>$ {{ dashboard_summary.total_income|floatformat:2 }}</h2>
     </div>
 
-    <div class="stat-card">
+    <div class="stat-card" style="color:red">
         <h4>Expense</h4>
-        <h2>$0.00</h2>
+        <h2>$ {{ dashboard_summary.total_expenses|floatformat:2 }}</h2>
     </div>
 
     <div class="stat-card">

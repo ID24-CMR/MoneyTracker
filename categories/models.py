@@ -1,5 +1,6 @@
-from django.db import models
 from django.conf import settings
+from django.db import models
+
 
 # Create your models here.
 class Category(models.Model):
@@ -18,7 +19,7 @@ class Category(models.Model):
 
     category_type = models.CharField(
         max_length=20,
-        choices=CATEGORY_TYPES
+        choices=CATEGORY_TYPES,
     )
 
     icon = models.CharField(
@@ -28,7 +29,7 @@ class Category(models.Model):
 
     color = models.CharField(
         max_length=20,
-        default="#4CAF50"
+        default="#4CAF50",
     )
 
     is_default = models.BooleanField(default=True)

@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
 
 from .forms import TransactionForm
 from .models import Transaction
+
 
 # Create your views here.
 @login_required
@@ -29,6 +30,7 @@ def transaction_create(request):
         if form.is_valid():
             transaction = form.save(commit=False)
             transaction.transaction_type = transaction.category.category_type
+            transaction.user = request.user
             transaction.save()
 
             messages.success(
