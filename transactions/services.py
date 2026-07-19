@@ -32,7 +32,7 @@ class TransactionService:
             ).aggregate(total=Sum("amount"))["total"] or 0
         )
 
-        return account.opening_balance + income -expense
+        return account.opening_balance + income - expense
 
     @staticmethod
     def get_account_summary(account):
