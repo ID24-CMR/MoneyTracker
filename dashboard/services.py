@@ -20,6 +20,9 @@ def get_dashboard_summary(user):
     
     monthly_summary = get_monthly_summary(user)
     recent_transactions = get_recent_transactions(user)
+    expenses_by_category = get_expenses_by_category(user)
+
+    print("recent_transactions:", recent_transactions)  # Debugging line to print recent transactions
 
     return {
         "total_balance": total_balance,
@@ -27,6 +30,7 @@ def get_dashboard_summary(user):
         "total_income": monthly_summary["monthly_income"],
         "total_expenses": monthly_summary["monthly_expenses"],
         "recent_transactions": recent_transactions,
+        "expenses_by_category": expenses_by_category,
     }
 
 def get_monthly_summary(user):
@@ -70,3 +74,14 @@ def get_recent_transactions(user, limit=5):
         "-transaction_date",
         "-created_at",
     )[ : limit ]
+
+
+def get_expenses_by_category(user):
+
+    return list(
+        Transaction.objects.filter(
+            user=user,
+            transaction_type="expense",
+            is_active=True,
+        ).values("category__name").annotate(total=Sum("amount")).order_by("-total")
+    )
