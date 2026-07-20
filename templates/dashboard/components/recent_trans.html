@@ -1,8 +1,6 @@
 
 
 <div class="dashboard-card">
-    {% if dashboard_view.recent_transactions %}
-    {% for transaction in dashboard_view.recent_transactions %}
 
     <h2>Recent Transactions</h2>
 
@@ -15,22 +13,21 @@
             </tr>
         </thead>
         <tbody>
+            {% if dashboard_summary.recent_transactions %}
+                {% for transaction in dashboard_summary.recent_transactions %}
+
             <tr>
-                <td >
-                    <div class="transaction-card">
-                        <div class="transaction-date">{{ transaction.date }}</div>
-                        <div class="transaction-category">{{ transaction.category }}</div>
-                        <div class="transaction-amount">${{ transaction.amount|floatformat:2 }}</div>
-                    </div>
-                </td>
+                <td >{{ transaction.transaction_date }}</td>
+                <td >{{ transaction.category }}</td>
+                <td >${{ transaction.amount|floatformat:2 }}</td>
             </tr>
+            {% endfor %}
+            {% else %}
+                <p>No recent transactions.</p>
+            {% endif %}
         </tbody>
     </table>
 
-    {% endfor %}
-{% else %}
-<h2>Recent Transactions</h2>
- <p>No recent transactions.</p>
-{% endif %}
+    
 
 </div>

@@ -1,5 +1,48 @@
 <div class="dashboard-card">
     <h2>Income vs Expenses</h2>
-
-    <p>Chart will appear here.</p>
+    {% if dashboard_summary.expenses_by_category %}
+        <canvas id="expenseChart"></canvas>
+            {{ dashboard_summary.expenses_by_category|json_script:"expenses-data" }}
+    {% else %}
+        <p>No expense data available.</p>
+    {% endif %}
 </div>
+
+{% if dashboard_summary.expenses_by_category %}
+<script>
+    const expensesData = JSON.parse(document.getElementById('expenses-data').textContent);
+    console.log("Expenses Data:", expensesData);  // Debugging line to print the expenses data
+    console.log("Expenses Data Type:", typeof expensesData);  // Debugging line to check the type of expensesData
+    console.log("Expenses Data Length:", Array.isArray(expensesData));  // Debugging line to check the length of expensesData
+    const labels = expensesData.map(item => item.category__name);
+    const values = expensesData.map(item => item.total);
+
+    new Chart(
+        document.getElementById("expenseChart"), {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Expenses by Category',
+                    data: values,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Expenses by Category'
+                    }
+                }
+            }
+        }
+    )
+</script>
+{% endif %}
