@@ -30,6 +30,7 @@ urlpatterns = [
     path("categories/", include("categories.urls")),
     path("transactions/", include("transactions.urls")),
     path("dashboard/", include("dashboard.urls")),
+    path("budgets/", include("budgets.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(
