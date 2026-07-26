@@ -4,6 +4,7 @@
 
 {% block content %}
 <h2>Budgets</h2>
+<br>
 <a href="{% url 'budget_create' %}" class="btn btn-primary mb-3">Create New Budget</a>
 
 {% if budgets_list %}
@@ -36,6 +37,7 @@
         </tbody>
     </table>
 {% else %}
+    <br><br>
     <p>No budgets found.</p>
 {% endif %}
 {% endblock %}

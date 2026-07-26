@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Report Dashboard {% endblock %}
+
+{% block content %}
+<h2>Financial Report Dashboard</h2>
+<div class="card">
+    <h4>Income</h4>
+    <h2>${{ report.income|floatformat:2 }}</h2>
+</div>
+<hr>
+<div class="card">
+    <h4>Expenses</h4>
+    <h2>${{ report.expenses|floatformat:2 }}</h2>
+</div>
+<hr>
+<div class="card">
+    <h4>Net Savings</h4>
+    <h2>${{ report.net_savings|floatformat:2 }}</h2>
+</div>
+<hr>
+<div class="card">
+    <h4>Top Categories</h4>
+    <ul>
+        {% for category in report.top_categories %}
+            <li>{{ category.name }}: ${{ category.total|floatformat:2 }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<hr>
+<div class="card">
+    <h4>Net Income</h4>
+    <h2>${{ report.net_income|floatformat:2 }}</h2>
+</div>
+<hr>
+<div class="card">
+    <h4>Net Expenses</h4>
+    <h2>${{ report.net_expenses|floatformat:2 }}</h2>
+</div>
+
+{% endblock %}
