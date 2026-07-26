@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Budgets{% endblock %}
+
+{% block content %}
+<h2>Budgets</h2>
+<br>
+<a href="{% url 'budget_create' %}" class="btn btn-primary mb-3">Create New Budget</a>
+
+{% if budgets_list %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Amount Limit</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for budget in budgets_list %}
+                <tr>
+                    <td>{{ budget.category.name }}</td>
+                    <td>${{ budget.amount_limit|floatformat:2 }}</td>
+                    <td>{{ budget.month }}</td>
+                    <td>{{ budget.year }}</td>
+                    <td>{{ budget.start_date }}</td>
+                    <td>{{ budget.end_date }}</td>
+                    <td>
+                        <!-- Add any actions like edit or delete here -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <br><br>
+    <p>No budgets found.</p>
+{% endif %}
+{% endblock %}
