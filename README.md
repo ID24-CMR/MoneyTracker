@@ -4,8 +4,8 @@
     <a href="href="https://github.com/ID24-CMR/MoneyTracker/LICENSE" title="Open License"><img src="https://img.shields.io/github/license/ID24-CMR/MoneyTracker"></a>
 <a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/v/release/ID24-CMR/MoneyTracker"></a>
 <a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/v/tag/ID24-CMR/MoneyTracker"></a>
-<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/commit-activity/w/ID24-CMR/MOneyTracker"></a>
-<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/languages/code-size/ID24-CMR/MOneyTracker"></a>
+<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/commit-activity/w/ID24-CMR/MoneyTracker"></a>
+<a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/languages/code-size/ID24-CMR/MoneyTracker"></a>
 <a href="href="https://github.com/ID24-CMR/MoneyTracker/BUILD" title="Open build"><img src="https://img.shields.io/github/repo-size/ID24-CMR/MOneyTracker"></a>
 <a> <img src="https://img.shields.io/github/issues-closed/ID24-CMR/MoneyTracker"></a>
 </p>
@@ -17,10 +17,12 @@
 	<a href="#how-to-contribute">Contribute</a>.
 	<a href="#contributors">Contributors</a>.
 	<a href="#repositories">Repositories</a>.
-	<a href="#liecensing">Licensing</a>
+	<a href="#licensing">Licensing</a>
 </p>
 
 ## Intro
+
+DEMO [link.......](https://moneytracker-rbux.onrender.com)
 
 ## Architecture Overview
 You can find the architecture overview [here](documents/architecture-overview.md), which will give ou a good starting point in how the backend services interact with other services, and purpose the serve.
