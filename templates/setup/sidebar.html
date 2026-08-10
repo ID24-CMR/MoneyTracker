@@ -1,4 +1,7 @@
-<aside class="sidebar">
+<aside class="sidebar" id="sidebar">
+    <button class="sidebar-close" id="sidebarClose">
+        <span class="toggle-icon">X</span>
+    </button>
     <ul class="sidebar-menu">
         <li>
             <a href="{% url 'dashboard_view' %}"> Dashboard</a>
@@ -29,3 +32,4 @@
         </li>
     </ul>
 </aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
