@@ -42,8 +42,8 @@
 
 /* sidebar here */
 
-.sidebar{
-    width: 260px;
+ .sidebar{
+    width: 240px;
     background: #1F2937;
     min-height: calc(100vh -70px);
     padding: 30px 15px;
@@ -121,7 +121,7 @@
     .toggle-icon {
         display: block;
     }
-}
+} 
 
 /* layout css ***/
 
