@@ -5,7 +5,64 @@ Home
 
 
 {% block content %}
-<h1>MoneyTracker</h1>
-<p>Frontend is working!!</p>
+
+<section class="hero-section">
+    <div class="hero-content">
+        <p class="hero-label">
+            Welcome to MoneyTracker!
+        </p>
+        <h1>Take control of<br> <span>your money.</span></h1>
+        <p class="hero-description"> Track your expenses, understand your spending, and build better financial habits - all in one place.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'register' %}" class="btn-primarys">Get Started</a>
+            <a href="{% url 'report_dashboard' %}" class="btn-secondarys">View Reports</a>
+        </div>
+    </div>
+</section>
+
+<section class="features-section">
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="feature-title">Track Your Money</h3>
+        <p class="feature-description">Easily monitor where your money goes with our intuitive expense tracking system.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-piggy-bank"></i>
+        </div>
+        <h3 class="feature-title">Set Budgets</h3>
+        <p class="feature-description">Create budgets for different categories and stay on top of your spending habits.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <h3 class="feature-title">Generate Reports</h3>
+        <p class="feature-description">Gain insights into your financial health with detailed reports and visualizations.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3 class="feature-title">Secure & Private</h3>
+        <p class="feature-description">Your data is safe with us. We prioritize your privacy and security above all else.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3 class="feature-title">Mobile Friendly</h3>
+        <p class="feature-description">Access your financial data on the go with our responsive and mobile-friendly design.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+        </div>
+        <h3 class="feature-title">24/7 Support</h3>
+        <p class="feature-description">Our dedicated support team is here to help you with any questions or issues you may have.</p>
+    </div>
+</section>
 
 {% endblock %}
