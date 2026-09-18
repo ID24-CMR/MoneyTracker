@@ -45,3 +45,24 @@
     padding: 15px;
     border-bottom: 1px solid #E5E7EB;
 }
+
+/* mobile responsiveness */
+@media (max-width: 768px) {
+    .dashboard{
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .stats-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .table {
+        min-width: 600px;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 9px 10px;
+    }
+}

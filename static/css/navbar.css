@@ -177,3 +177,15 @@
     color: #6B7280;
     font-size:14px;
 }
+
+/* mobile responsiveness ***/
+@media (max-width: 768px) {
+    .navbar{
+        padding: 0 20px;
+        height: 60px;
+
+    }
+    .logo{
+        font-size: 20px;
+    }
+}

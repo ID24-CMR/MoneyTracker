@@ -17,9 +17,9 @@ Accounts
 </div>
 
 {% if account_data %}
-<div class="accound-grid">
+<div class="features-section">
     {% for item in account_data %}
-    <div class="account-card">
+    <div class="feature-card">
         <h3>{{ item.account.name }}</h3>
         <p><strong>Type:</strong> {{ item.account.get_account_type_display }}</p>
         <p><strong>Currency:</strong> {{ item.account.currency }}</p>
